@@ -1,0 +1,114 @@
+
+
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+       layout:decorate="template">
+
+<head>
+    <meta charset="utf-8">
+    <title>Restos</title>
+    <meta name="description" content="This is a free Bootstrap landing page theme created for BootstrapZero. Feature video background and one page design." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" th:href="@{images/favicon.png}" type="">
+
+    <title> Se connecter </title>
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" th:href="@{css/bootstrap.css}" />
+
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css}" rel="stylesheet">
+    <!--owl slider stylesheet -->
+    <link th:href="@{css/font-awesome.min.css}" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link  th:href="@{css/style.css}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link  th:href="@{css/messagecss.css}" rel="stylesheet" />
+    <link  th:href="@{css/responsive.css}" rel="stylesheet" />
+</head>
+<body>
+
+
+<header class="header_section">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="index.html">
+            <span>
+              Restos
+            </span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav  mx-auto ">
+                    <li class="nav-item ">
+                        <a class="nav-link" th:href="@{Liste_Utilisateur}">Liste_User</a>
+                    </li>
+                    <li class="nav-item active ">
+                        <a class="nav-link" th:href="@{Liste_Messasge}">Liste_Message</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{Tables}">Ajouter des tables</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" th:href="@{Liste_table_admin}">Liste des tables</a>
+                    </li>
+
+                </ul>
+                <div class="user_option">
+                    <a th:href="@{/login}" class="user_link">
+                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                    </a>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+<!--liste table-->
+<section class="food_section layout_padding">
+    <div class="container" >
+        <div class="heading_container heading_center">
+            <h2> <i class="fa fa-comments" aria-hidden="true"></i> Liste_Messages
+            </h2>
+            </br> </br> </br>
+        </div>
+    </div>
+    <div class=" "  >
+                <div class="col my-3"   th:each="msg:${message}">
+                    <div class="cad border-hover-primary hover-scale" >
+                        <div class="card-body">
+                            <div class="text-primary  mb-5" style=" text-align: center;">
+                                <svg width="60" height="60" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect x="0" y="0" width="24" height="24"></rect>
+                                        <path d="M16,15.6315789 L16,12 C16,10.3431458 14.6568542,9 13,9 L6.16183229,9 L6.16183229,5.52631579 C6.16183229,4.13107011 7.29290239,3 8.68814808,3 L20.4776218,3 C21.8728674,3 23.0039375,4.13107011 23.0039375,5.52631579 L23.0039375,13.1052632 L23.0206157,17.786793 C23.0215995,18.0629336 22.7985408,18.2875874 22.5224001,18.2885711 C22.3891754,18.2890457 22.2612702,18.2363324 22.1670655,18.1421277 L19.6565168,15.6315789 L16,15.6315789 Z" fill="currentColor"></path>
+                                        <path d="M1.98505595,18 L1.98505595,13 C1.98505595,11.8954305 2.88048645,11 3.98505595,11 L11.9850559,11 C13.0896254,11 13.9850559,11.8954305 13.9850559,13 L13.9850559,18 C13.9850559,19.1045695 13.0896254,20 11.9850559,20 L4.10078614,20 L2.85693427,21.1905292 C2.65744295,21.3814685 2.34093638,21.3745358 2.14999706,21.1750444 C2.06092565,21.0819836 2.01120804,20.958136 2.01120804,20.8293182 L2.01120804,18.32426 C1.99400175,18.2187196 1.98505595,18.1104045 1.98505595,18 Z M6.5,14 C6.22385763,14 6,14.2238576 6,14.5 C6,14.7761424 6.22385763,15 6.5,15 L11.5,15 C11.7761424,15 12,14.7761424 12,14.5 C12,14.2238576 11.7761424,14 11.5,14 L6.5,14 Z M9.5,16 C9.22385763,16 9,16.2238576 9,16.5 C9,16.7761424 9.22385763,17 9.5,17 L11.5,17 C11.7761424,17 12,16.7761424 12,16.5 C12,16.2238576 11.7761424,16 11.5,16 L9.5,16 Z" fill="currentColor" opacity="0.3"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <h6 class="font-weight-bold mb-3" th:text="${msg.Name}"></h6> <p class="text-muted mb-0">Message : <strong  class="text-muted mb-0" th:text="${msg.Message}"></strong> </p>
+
+                            <h6 class="font-weight-bold mb-3" th:text="${msg.Name}"></h6> <p class="text-muted mb-0">Reponse : <strong  class="text-muted mb-0" th:text="${msg.Reponse}"></strong> </p>
+
+                            <div style="text-align: right;">
+                                <a  th:href="@{InfoMessage(id=${msg.ID_Reservation})}"><i class="fa fa-envelope-open" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+        </div>
+</section>
+
+
+
+<!-- jQery -->
+</body>
+</html>

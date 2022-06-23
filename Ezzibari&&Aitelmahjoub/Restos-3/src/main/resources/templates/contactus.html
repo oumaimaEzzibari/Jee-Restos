@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.w3.org/1999/xhtml"
+      layout:decorate="template">
+
+<head>
+    <meta charset="utf-8">
+    <title>Restos</title>
+    <meta name="description" content="This is a free Bootstrap landing page theme created for BootstrapZero. Feature video background and one page design." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Codeply">
+
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css}" rel="stylesheet" />
+    <link rel="shortcut icon" th:href="@{images/favicon.png}" type="">
+
+
+    <!-- bootstrap core css -->
+
+    <link rel="stylesheet" type="text/css" th:href="@{css/contactuscss.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{css/bootstrap.css}" />
+
+    <!--owl slider stylesheet -->
+    <link rel="stylesheet" type="text/css" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css}" />
+    <!-- nice select  -->
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css}" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+    <!-- font awesome style -->
+    <link th:href="@{css/font-awesome.min.css}" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link  th:href="@{css/style.css}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link  th:href="@{css/responsive.css}" rel="stylesheet" />
+</head>
+
+
+<body>
+
+
+<header class="header_section">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="index.html">
+            <span>
+              Restos
+            </span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav  mx-auto ">
+                    <li class="nav-item ">
+                        <a class="nav-link"th:href="@{Accueil}">Home </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{Menu}">Menu</a>
+                    </li>
+                    <li class="nav-item  ">
+                        <a class="nav-link" th:href="@{Nos_Tables}">Reserver Table</a>
+                    </li>
+                    <li class="nav-item " >
+                        <a class="nav-link" th:href="@{About_Us}">About <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" sec:authorize="hasRole('ADMIN')"  th:href="@{Liste_Utilisateur}">Admin</a>
+                    </li>
+                </ul>
+                 <div class="user_option">
+                    <a th:href="@{/login}" class="user_link">
+                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                    </a>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+
+<div id="contact" class="contact-area layout_padding">
+    <div class="container">
+        <div  class="section-title text-center">
+            <h1>Contact Us</h1></br></br>
+            </div>
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="contact">
+                    <form class="form" name="enq" method="post" th:action="@{ContactUs}" >
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <input type="text" name="Name" class="form-control" placeholder="Name" required="required">
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <input type="text" name="Table" class="form-control" th:value="${table_a_reserver.Name_Table}" required="required">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <textarea rows="6" name="Message" class="form-control" placeholder="Your Message" required="required"></textarea>
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <button type="submit" value="Send message" name="submit" id="submitButton" class="btn btn-contact-bg" title="Submit Your Message!">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div><!--- END COL -->
+            <div class="col-lg-5">
+                <div class="single_address">
+                    <i class="fa fa-map-marker"></i>
+                    <h4>Our Address</h4>
+                    <p>137 Rue Al Bakri, Casablanca 20250</p>
+                </div>
+                <div class="single_address">
+                    <i class="fa fa-envelope"></i>
+                    <h4>Send your message</h4>
+                    <p>Restos@gmail.com</p>
+                </div>
+                <div class="single_address">
+                    <i class="fa fa-phone"></i>
+                    <h4>Call us on</h4>
+                    <p>0522098765</p>
+                </div>
+                <div class="single_address">
+                    <i class="fa fa-clock-o"></i>
+                    <h4>Work Time</h4>
+                    <p>Mon - Fri: 08.00 - 16.00. <br>Sat: 10.00 - 14.00</p>
+                </div>
+            </div><!--- END COL -->
+        </div><!--- END ROW -->
+    </div><!--- END CONTAINER -->
+</div>
+
+
+
+<!-- end about section -->
+
+<!-- footer section -->
+<footer class="footer_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 footer-col">
+                <div class="footer_contact">
+                    <h4>
+                        Contact Us
+                    </h4>
+                    <div class="contact_link_box">
+                        <a href="">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <span>
+                  Location
+                </span>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <span>
+                  Call +01 1234567890
+                </span>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <span>
+                  demo@gmail.com
+                </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 footer-col">
+                <div class="footer_detail">
+                    <a href="" class="footer-logo">
+                        Feane
+                    </a>
+                    <p>
+                        Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+                    </p>
+                    <div class="footer_social">
+                        <a href="">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-pinterest" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 footer-col">
+                <h4>
+                    Opening Hours
+                </h4>
+                <p>
+                    Everyday
+                </p>
+                <p>
+                    10.00 Am -10.00 Pm
+                </p>
+            </div>
+        </div>
+        <div class="footer-info">
+            <p>
+                &copy;  All Rights Reserved By
+                <a th:href="@{https://html.design/}">Free Html Templates</a><br><br>
+                &copy;  Distributed By
+                <a th:href="@{https://themewagon.com/}" target="_blank">ThemeWagon</a>
+            </p>
+        </div>
+    </div>
+</footer>
+<!-- end slider section -->
+</div>
+</body>
+</html>

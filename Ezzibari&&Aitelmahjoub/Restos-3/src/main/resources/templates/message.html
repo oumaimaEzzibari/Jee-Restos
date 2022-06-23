@@ -1,0 +1,118 @@
+
+
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+       layout:decorate="template">
+
+<head>
+    <meta charset="utf-8">
+    <title>Restos</title>
+    <meta name="description" content="This is a free Bootstrap landing page theme created for BootstrapZero. Feature video background and one page design." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" th:href="@{images/favicon.png}" type="">
+
+    <title> Se connecter </title>
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" th:href="@{css/bootstrap.css}" />
+
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css}" rel="stylesheet">
+    <!--owl slider stylesheet -->
+    <link th:href="@{css/font-awesome.min.css}" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link  th:href="@{css/style.css}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link  th:href="@{css/responsive.css}" rel="stylesheet" />
+    <link  th:href="@{css/messageitemcss.css}" rel="stylesheet" />
+</head>
+<body>
+
+
+<header class="header_section">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="index.html">
+            <span>
+              Restos
+            </span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav  mx-auto ">
+                    <li class="nav-item ">
+                        <a class="nav-link" th:href="@{Liste_Utilisateur}">Liste_User</a>
+                    </li>
+                    <li class="nav-item active ">
+                        <a class="nav-link" th:href="@{Liste_Messasge}">Liste_Message</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{Tables}">Ajouter des tables</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" th:href="@{Liste_table_admin}">Liste des tables</a>
+                    </li>
+
+                </ul>
+                <div class="user_option">
+                    <a th:href="@{/login}" class="user_link">
+                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                    </a>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+<!--liste table-->
+    <section id="about-section" class="pt-5 pb-5" style="text-align: center;">
+        <div class="container wrapabout">
+            <div class="red"></div>
+                <div >
+                    <div class="blockabout">
+                        <div class="blockabout-inner text-sm-start">
+                            <div class="text-center ">
+                                <div class="heading_container heading_center">
+                                    <h1><i class="fa fa-comments-o" ></i>  Message</h1>
+                                    </br> </br> </br>
+                                </div>
+
+                                <p class="text-muted mb-0"><i class="fa fa-user" aria-hidden="true"></i> Client : <strong  class="text-muted mb-0" th:text="${message.Name}"></strong> </p>
+                              <br>  <p class="text-muted mb-0"> <i class="fa fa-map-marker" aria-hidden="true"></i> Table : <strong  class="text-muted mb-0" th:text="${message.Table}"></strong> </p>
+                                <br>  <p class="text-muted mb-0"> <i class="fa fa-envelope" aria-hidden="true"></i> Message : </p>
+
+
+                               </div>
+                            <br> <p class="font-weight-bold mb-3" style="flex-wrap: wrap-reverse;" th:text="${message.Message}"></p>
+                            <br><p class="text-muted mb-0"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>Reponse : <strong  class="text-muted mb-0" th:text="${message.Reponse}"></strong> </p>
+
+
+                            <div style="display:flex;padding-left:350px">
+                                <form  class="form-horizontal" style="padding-right:20px" role="form"  method="post" th:action="@{InfoMessageRep(id=${message.ID_Reservation},rep='accepter')}">
+                                    <br><input class="btn rey-btn mt-3" type="submit" name="Reponse" value="Accepter">
+                                </form>
+
+                                <form class="form-horizontal"  role="form"  method="post" th:action="@{InfoMessageRep(id=${message.ID_Reservation},rep='Refuser')}">
+                                    <br><input class="btn rey-btn mt-3" type="submit" name="Reponse" value="Refuser">
+                                </form>
+                            </div>
+                </div>
+
+            </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+<!-- jQery -->
+</body>
+</html>
